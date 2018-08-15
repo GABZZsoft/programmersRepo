@@ -1,0 +1,22 @@
+{% load static %}<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Programmers Board{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-success bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">Programmers Board</a>
+    </div>
+  </nav>
+  <div class="container">
+    <ol class="breadcrumb my-4">
+      {% block breadcrumb %}
+      {% endblock %}
+    </ol>
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>
