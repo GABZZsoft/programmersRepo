@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block breadcrumb %}
   <li class="breadcrumb-item"><a href="{% url 'home' %}"> Board</a></li>
   <li class="breadcrumb-item active"><a href="{% url 'board_topics' board.id %}">{{ board.name }}</a></li>
   <li class="breadcrumb-item active">new-{{ board.name }}-topic</li>
 {% endblock %}
 {% block content %}
-<form method="post">
+<form method="post" novalidate>
   {% csrf_token %}
-  {{ form.as_p }}
+  {% include 'includes/form.html' %}
   <button type="submit" class="btn btn-success">Post</button>
 </form>
 {% endblock %}
