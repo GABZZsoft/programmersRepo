@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% block breadcrumb %}
   <li class="breadcrumb-item"><a href="{% url 'home' %}"> Board</a></li>
-  <li class="breadcrumb-item active">{{ board.name }}</li>
+  <li class="breadcrumb-item active"><a href="{% url 'board_topics' board.id %}">{{ board.name }}</a></li>
   <li class="breadcrumb-item active">new-{{ board.name }}-topic</li>
+{% endblock %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-success">Post</button>
+</form>
 {% endblock %}
