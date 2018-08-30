@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('boards.urls')),
     path('account/', include('accounts.urls')),
     #path('accounts/', include('django.contrib.auth.urls')),
+    #fixing travis
 ]

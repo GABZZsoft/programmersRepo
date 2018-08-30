@@ -2,6 +2,8 @@ language: python
 python:
     - 3.6
 install:
-    - python setup.py install -r requirements.txt
+    - install -r requirements.txt
+env:
+    - DJANGO_VERSION=2.0
 scripts:
     - python manage.py test
