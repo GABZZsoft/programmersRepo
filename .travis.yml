@@ -3,10 +3,12 @@ python:
     - 3.6
 services: sqlite
 
-install: "pip install -r requirements.txt"
 env:
     - DJANGO_VERSION=2.0.0
+
+install:
+    - pip install -q Django==$DJANGO_VERSION
+    - pip install -r requirements.txt
+
 scripts:
-    - python3 manage.py makemigrations
-    - python3 manage.py migrate
     - python3 manage.py test
